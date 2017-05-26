@@ -26,6 +26,8 @@
 - PossibleController:
     - Event:
         - SimpleEvent:
+            - Property:
+              - HasDomain
             - Binding
             - Generic_event
             - Translocation

@@ -5,3 +5,12 @@
   type: token
   pattern: |
     [word=/(?i)sh2/ & incoming=nn]
+
+- name: hasDomain1
+  label: HasDomain
+  action: mkBioMention
+  priority: "7"
+  pattern: |
+    trigger = [lemma=domain]
+    domaintype:Domain = nn
+    theme:BioChemicalEntity = <dobj nsubj
