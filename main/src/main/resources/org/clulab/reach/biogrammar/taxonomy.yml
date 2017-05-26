@@ -1,6 +1,7 @@
 - Alias
 - ModificationTrigger
 - Site
+- Domain
 - Context:
     - Species
     - CellLine

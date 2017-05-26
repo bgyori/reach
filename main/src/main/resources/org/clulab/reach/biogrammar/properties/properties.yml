@@ -1,0 +1,7 @@
+- name: domains1
+  label: Domain
+  action: mkBioMention
+  priority: "6"
+  type: token
+  pattern: |
+    [word=/(?i)sh2/ & incoming=nn]
