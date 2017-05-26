@@ -10,7 +10,18 @@
   label: HasDomain
   action: mkBioMention
   priority: "7"
+  example: "GRB2 has an SH2 domain"
   pattern: |
     trigger = [lemma=domain]
     domaintype:Domain = nn
     theme:BioChemicalEntity = <dobj nsubj
+
+- name: hasDomain2
+  label: HasDomain
+  action: mkBioMention
+  priority: "7"
+  example: "the SH2 domain of/on GRB2"
+  pattern: |
+    trigger = [lemma=domain]
+    domaintype:Domain = nn
+    theme:BioChemicalEntity = prep_of|prep_on
