@@ -317,4 +317,28 @@ class TestActivationEvents extends FlatSpec with Matchers {
     val mentions = getBioMentions(sent45)
     mentions.filter(_ matches "Positive_activation") should have size (0)
   }
+
+  val sent47 = "This is supported by a previous study showing that haplodeficiency of Akt1 dramatically inhibits prostate tumor development in Pten +/- mice."
+  sent47 should "not contain a negative activation between Akt1 and Pten" in {
+    val mentions = getBioMentions(sent47)
+    hasNegativeActivation(controllerEntity = "Akt1", controlledEntity = "Pten", mentions) should be (false)
+  }
+
+  val sent48 = "Akt1 and 2 deficiency is sufficient to markedly reduce the incidence of tumors in Pten (+/-) mice and Myc also cooperates with Akt1 in promoting prostate tumorigenesis."
+  sent48 should "not contain a negative activation between Akt1 and Pten" in {
+    val mentions = getBioMentions(sent48)
+    hasNegativeActivation(controllerEntity = "Akt1", controlledEntity = "Pten", mentions) should be (false)
+  }
+
+  val sent49 = "Moreover, knockdown of Akt1 induces MST2 activation and enhances doxorubicin activated MST2 and apoptosis in PTEN mutated MDA-MB-468 cells"
+  sent49 should "not contain a negative activation between Akt1 and PTEN" in {
+    val mentions = getBioMentions(sent49)
+    hasNegativeActivation(controllerEntity = "Akt1", controlledEntity = "PTEN", mentions) should be (false)
+  }
+
+  val sent50 = "PI3K and Akt signalling is also essential for oncogenic ErbB-2-induced transformation, and Akt1 deficiency sufficiently suppresses tumour development in PTEN +/- mice"
+  sent50 should "not contain a negative activation between Akt1 and Pten" in {
+    val mentions = getBioMentions(sent50)
+    hasNegativeActivation(controllerEntity = "Akt1", controlledEntity = "Pten", mentions) should be (false)
+  }
 }
